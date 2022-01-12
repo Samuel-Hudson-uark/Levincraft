@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "mode=none": {
+      "model": "levincraft:block/runeblock"
+    },
+    "mode=input": {
+      "model": "levincraft:block/runeblock_input"
+    },
+    "mode=output": {
+      "model": "levincraft:block/runeblock_output"
+    }
+  }
+}

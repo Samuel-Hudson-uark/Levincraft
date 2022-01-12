@@ -1,0 +1,29 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "levincraft:block/pylon",
+      "x": -90
+    },
+    "facing=south": {
+      "model": "levincraft:block/pylon",
+      "x": 90
+    },
+    "facing=east": {
+      "model": "levincraft:block/pylon",
+      "x": 90,
+      "y": -90
+    },
+    "facing=west": {
+      "model": "levincraft:block/pylon",
+      "x": 90,
+      "y": 90
+    },
+    "facing=up": {
+      "model": "levincraft:block/pylon",
+      "x": 180
+    },
+    "facing=down": {
+      "model": "levincraft:block/pylon"
+    }
+  }
+}

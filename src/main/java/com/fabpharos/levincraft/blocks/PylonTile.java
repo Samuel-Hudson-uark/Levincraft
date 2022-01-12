@@ -12,15 +12,12 @@ import net.minecraft.world.phys.AABB;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.CapabilityEnergy;
-import net.minecraftforge.energy.EnergyStorage;
-import net.minecraftforge.energy.IEnergyStorage;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Stream;
 
 import static com.fabpharos.levincraft.blocks.PylonBlock.MODE;
 import static com.fabpharos.levincraft.setup.Registration.PYLONBLOCK_TILE;
@@ -186,8 +183,8 @@ public class PylonTile extends EnergyStoringTile {
     }
 
     public enum Mode implements StringRepresentable {
-        MODE_INPUT("input"),
         MODE_NONE("none"),
+        MODE_INPUT("input"),
         MODE_OUTPUT("output");
 
         private final String name;

@@ -1,0 +1,26 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "levincraft:block/beam_middle"
+    },
+    "facing=up": {
+      "model": "levincraft:block/beam_middle"
+    },
+    "facing=north": {
+      "model": "levincraft:block/beam_middle",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "levincraft:block/beam_middle",
+      "x": 90
+    },
+    "facing=east": {
+      "model": "levincraft:block/beam_middle",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "levincraft:block/beam_middle",
+      "y": 90
+    }
+  }
+}

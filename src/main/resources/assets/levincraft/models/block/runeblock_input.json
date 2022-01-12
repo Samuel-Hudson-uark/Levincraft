@@ -1,0 +1,30 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [32, 24],
+	"textures": {
+		"0": "levincraft:block/rune_input",
+		"particle": "levincraft:block/rune_input"
+	},
+	"elements": [
+		{
+			"from": [4, 4, 4],
+			"to": [12, 12, 12],
+			"faces": {
+				"north": {"uv": [4, 0, 8, 5.33333], "texture": "#0"},
+				"east": {"uv": [8, 5.33333, 12, 10.66667], "texture": "#0"},
+				"south": {"uv": [8, 0, 12, 5.33333], "texture": "#0"},
+				"west": {"uv": [0, 5.33333, 4, 10.66667], "texture": "#0"},
+				"up": {"uv": [4, 5.33333, 8, 10.66667], "texture": "#0"},
+				"down": {"uv": [12, 5.33333, 16, 10.66667], "texture": "#0"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "VoxelShapes",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [0]
+		}
+	]
+}

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "attached=true": {
+      "model": "levincraft:block/beam_middle"
+    },
+    "attached=false": {
+      "model": "levincraft:block/beam_bottom"
+    }
+  }
+}
