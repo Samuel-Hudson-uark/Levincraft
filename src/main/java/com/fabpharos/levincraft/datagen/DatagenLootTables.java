@@ -17,6 +17,9 @@ public class DatagenLootTables extends BaseLootTableProvider {
         lootTables.put(Registration.BEAMBLOCK.get(), createSimpleTable("beamblock", Registration.BEAMBLOCK.get()));
         lootTables.put(Registration.RUNEBLOCK.get(), createSimpleTable("runeblock", Registration.RUNEBLOCK.get()));
 
+        lootTables.put(Registration.ALUMINUM_BLOCK.get(), createSimpleTable("aluminum_block", Registration.ALUMINUM_BLOCK.get()));
+        lootTables.put(Registration.DURALUMIN_BLOCK.get(), createSimpleTable("duralumin_block", Registration.DURALUMIN_BLOCK.get()));
+
         lootTables.put(Registration.BAUXITE_ORE.get(), createSilkTouchTable("bauxite_ore", Registration.BAUXITE_ORE.get(), Registration.RAW_BAUXITE.get(), 1, 3));
     }
 }

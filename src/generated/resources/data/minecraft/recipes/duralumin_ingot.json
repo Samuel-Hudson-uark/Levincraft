@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "levincraft:duralumin_blend"
+  },
+  "result": "levincraft:duralumin_ingot",
+  "experience": 0.0,
+  "cookingtime": 400
+}

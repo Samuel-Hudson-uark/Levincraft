@@ -25,6 +25,7 @@ public class DatagenLanguageProvider extends LanguageProvider {
         add(Registration.ALUMINUM_BLOCK.get(), "Block of Aluminum");
         add(Registration.RAW_BAUXITE_BLOCK.get(), "Block of Raw Bauxite");
         add(Registration.BAUXITE_ORE.get(), "Bauxite Ore");
+        add(Registration.DURALUMIN_BLOCK.get(), "Block of Duralumin");
         //Items
         add(Registration.CRYSTALBATTERY_ITEM.get(), "Crystal Battery");
         add(Registration.CRYSTALTUNER_ITEM.get(), "Crystal Tuner");
@@ -35,6 +36,10 @@ public class DatagenLanguageProvider extends LanguageProvider {
         add(Registration.ALUMINUM_INGOT.get(), "Aluminum Ingot");
         add(Registration.ALUMINUM_NUGGET.get(), "Aluminum Nugget");
         add(Registration.RAW_BAUXITE.get(), "Raw Bauxite");
+
+        add(Registration.DURALUMIN_INGOT.get(), "Duralumin Ingot");
+        add(Registration.DURALUMIN_NUGGET.get(), "Duralumin Nugget");
+        add(Registration.DURALUMIN_BLEND.get(), "Duralumin Blend");
         //Messages
         add("message.chargableitem", "Charge: %s/%s");
     }

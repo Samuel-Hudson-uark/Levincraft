@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:raw_copper"
+    },
+    {
+      "item": "levincraft:raw_bauxite"
+    },
+    {
+      "item": "levincraft:raw_bauxite"
+    },
+    {
+      "item": "levincraft:raw_bauxite"
+    },
+    {
+      "item": "levincraft:raw_bauxite"
+    },
+    {
+      "item": "levincraft:raw_bauxite"
+    },
+    {
+      "item": "levincraft:raw_bauxite"
+    },
+    {
+      "item": "levincraft:raw_bauxite"
+    },
+    {
+      "item": "levincraft:raw_bauxite"
+    }
+  ],
+  "result": {
+    "item": "levincraft:duralumin_blend",
+    "count": 2
+  }
+}

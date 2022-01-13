@@ -24,11 +24,13 @@ public class DatagenBlockTags extends BlockTagsProvider {
                 .add(Registration.RUNEBLOCK.get())
                 .add(Registration.ALUMINUM_BLOCK.get())
                 .add(Registration.BAUXITE_ORE.get())
-                .add(Registration.RAW_BAUXITE_BLOCK.get());
+                .add(Registration.RAW_BAUXITE_BLOCK.get())
+                .add(Registration.DURALUMIN_BLOCK.get());
         tag(BlockTags.NEEDS_STONE_TOOL)
                 .add(Registration.ALUMINUM_BLOCK.get())
                 .add(Registration.BAUXITE_ORE.get())
                 .add(Registration.RAW_BAUXITE_BLOCK.get());
+        tag(BlockTags.NEEDS_IRON_TOOL).add(Registration.DURALUMIN_BLOCK.get());
         tag(Tags.Blocks.ORES).add(Registration.BAUXITE_ORE.get());
         tag(BlockTags.CRYSTAL_SOUND_BLOCKS).add(Registration.RUNEBLOCK.get());
     }

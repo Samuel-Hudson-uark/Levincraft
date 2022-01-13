@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "levincraft",
+  "ingredients": [
+    {
+      "item": "levincraft:duralumin_nugget"
+    },
+    {
+      "item": "levincraft:duralumin_nugget"
+    },
+    {
+      "item": "levincraft:duralumin_nugget"
+    },
+    {
+      "item": "levincraft:duralumin_nugget"
+    },
+    {
+      "item": "levincraft:duralumin_nugget"
+    },
+    {
+      "item": "levincraft:duralumin_nugget"
+    },
+    {
+      "item": "levincraft:duralumin_nugget"
+    },
+    {
+      "item": "levincraft:duralumin_nugget"
+    },
+    {
+      "item": "levincraft:duralumin_nugget"
+    }
+  ],
+  "result": {
+    "item": "levincraft:duralumin_ingot"
+  }
+}

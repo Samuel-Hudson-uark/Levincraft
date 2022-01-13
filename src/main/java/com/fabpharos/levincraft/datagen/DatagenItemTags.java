@@ -16,9 +16,15 @@ public class DatagenItemTags extends ItemTagsProvider {
     @Override
     protected void addTags() {
         tag(Tags.Items.ORES).add(Registration.BAUXITE_ORE_ITEM.get());
-        tag(Tags.Items.INGOTS).add(Registration.ALUMINUM_INGOT.get());
-        tag(Tags.Items.NUGGETS).add(Registration.ALUMINUM_NUGGET.get());
-        tag(Tags.Items.STORAGE_BLOCKS).add(Registration.ALUMINUM_BLOCK_ITEM.get());
+        tag(Tags.Items.INGOTS)
+                .add(Registration.ALUMINUM_INGOT.get())
+                .add(Registration.DURALUMIN_INGOT.get());
+        tag(Tags.Items.NUGGETS)
+                .add(Registration.ALUMINUM_NUGGET.get())
+                .add(Registration.DURALUMIN_NUGGET.get());
+        tag(Tags.Items.STORAGE_BLOCKS)
+                .add(Registration.ALUMINUM_BLOCK_ITEM.get())
+                .add(Registration.DURALUMIN_BLOCK_ITEM.get());
     }
 
     @Override

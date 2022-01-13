@@ -83,6 +83,16 @@ public class Registration {
     public static final RegistryObject<Item> ALUMINUM_INGOT = ITEMS.register("aluminum_ingot", () -> new Item(ITEM_PROPERTIES));
     public static final RegistryObject<Item> ALUMINUM_NUGGET = ITEMS.register("aluminum_nugget", () -> new Item(ITEM_PROPERTIES));
 
+    //DURALUMIN
+
+    public static final RegistryObject<Block> DURALUMIN_BLOCK = BLOCKS.register("duralumin_block", () ->
+            new Block(BlockBehaviour.Properties.of(Material.METAL).strength(4f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Item> DURALUMIN_BLOCK_ITEM = fromBlock(DURALUMIN_BLOCK);
+
+    public static final RegistryObject<Item> DURALUMIN_BLEND = ITEMS.register("duralumin_blend", () -> new Item(ITEM_PROPERTIES));
+    public static final RegistryObject<Item> DURALUMIN_INGOT = ITEMS.register("duralumin_ingot", () -> new Item(ITEM_PROPERTIES));
+    public static final RegistryObject<Item> DURALUMIN_NUGGET = ITEMS.register("duralumin_nugget", () -> new Item(ITEM_PROPERTIES));
+
     //ITEMS
     public static final RegistryObject<Item> RAILGUN_ITEM = ITEMS.register("railgun", RailgunItem::new);
     public static final RegistryObject<Item> RAILGUNAMMO_ITEM = ITEMS.register("railgunammo", () ->

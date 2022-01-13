@@ -8,6 +8,7 @@ import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 
 import java.util.function.Consumer;
@@ -27,7 +28,17 @@ public class DatagenRecipes extends RecipeProvider {
                         Registration.ALUMINUM_INGOT.get(), 0.0f, 100)
                 .unlockedBy("has_chunk", has(Registration.RAW_BAUXITE.get()))
                 .save(consumer, "aluminum_ingot2");
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(Registration.DURALUMIN_BLEND.get()),
+                        Registration.DURALUMIN_INGOT.get(), 0.0f, 400)
+                .unlockedBy("has_chunk", has(Registration.DURALUMIN_BLEND.get()))
+                .save(consumer, "duralumin_ingot");
+        ShapelessRecipeBuilder.shapeless(Registration.DURALUMIN_BLEND.get(), 2)
+                .requires(Items.RAW_COPPER, 1)
+                .requires(Registration.RAW_BAUXITE.get(), 8)
+                .unlockedBy("has_chunk", has(Registration.RAW_BAUXITE.get()))
+                .save(consumer, "duralumin_blend");;
         makeMetalConversionRecipies(Registration.ALUMINUM_NUGGET.get(), Registration.ALUMINUM_INGOT.get(), Registration.ALUMINUM_BLOCK_ITEM.get(), consumer);
+        makeMetalConversionRecipies(Registration.DURALUMIN_NUGGET.get(), Registration.DURALUMIN_INGOT.get(), Registration.DURALUMIN_BLOCK_ITEM.get(), consumer);
     }
 
     private <I extends Item> void makeMetalConversionRecipies(I nugget, I ingot, I block, Consumer<FinishedRecipe> consumer) {

@@ -24,6 +24,8 @@ public class DatagenItemModels extends ItemModelProvider {
         withExistingParent(Registration.BAUXITE_ORE.get().getRegistryName().getPath(), modLoc("block/bauxite_ore"));
         withExistingParent(Registration.RAW_BAUXITE_BLOCK.get().getRegistryName().getPath(), modLoc("block/raw_bauxite_block"));
 
+        withExistingParent(Registration.DURALUMIN_BLOCK.get().getRegistryName().getPath(), modLoc("block/duralumin_block"));
+
         singleTexture(Registration.RAILGUNAMMO_ITEM.get().getRegistryName().getPath(),
                 mcLoc("item/generated"),
                 "layer0", modLoc("item/railgun_ammo"));
@@ -46,5 +48,15 @@ public class DatagenItemModels extends ItemModelProvider {
         singleTexture(Registration.ALUMINUM_NUGGET.get().getRegistryName().getPath(),
                 mcLoc("item/generated"),
                 "layer0", modLoc("item/aluminum_nugget"));
+
+        singleTexture(Registration.DURALUMIN_BLEND.get().getRegistryName().getPath(),
+                mcLoc("item/generated"),
+                "layer0", modLoc("item/duralumin_blend"));
+        singleTexture(Registration.DURALUMIN_INGOT.get().getRegistryName().getPath(),
+                mcLoc("item/generated"),
+                "layer0", modLoc("item/duralumin_ingot"));
+        singleTexture(Registration.DURALUMIN_NUGGET.get().getRegistryName().getPath(),
+                mcLoc("item/generated"),
+                "layer0", modLoc("item/duralumin_nugget"));
     }
 }

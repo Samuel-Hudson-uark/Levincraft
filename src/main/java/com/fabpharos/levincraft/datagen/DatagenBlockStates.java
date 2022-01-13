@@ -17,5 +17,7 @@ public class DatagenBlockStates extends BlockStateProvider {
         simpleBlock(Registration.BAUXITE_ORE.get());
         simpleBlock(Registration.RAW_BAUXITE_BLOCK.get());
         simpleBlock(Registration.ALUMINUM_BLOCK.get());
+
+        simpleBlock(Registration.DURALUMIN_BLOCK.get());
     }
 }

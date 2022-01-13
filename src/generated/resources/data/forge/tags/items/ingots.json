@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "levincraft:aluminum_ingot"
+    "levincraft:aluminum_ingot",
+    "levincraft:duralumin_ingot"
   ]
 }

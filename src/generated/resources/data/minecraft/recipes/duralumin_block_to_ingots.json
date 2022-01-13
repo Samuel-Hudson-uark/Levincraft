@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "levincraft",
+  "ingredients": [
+    {
+      "item": "levincraft:duralumin_block"
+    }
+  ],
+  "result": {
+    "item": "levincraft:duralumin_ingot",
+    "count": 9
+  }
+}
