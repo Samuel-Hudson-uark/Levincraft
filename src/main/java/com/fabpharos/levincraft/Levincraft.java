@@ -20,6 +20,7 @@ public class Levincraft {
 
         // Register the deferred registry
         Registration.init();
+        ModSetup.setup();
 
         // Register the setup method for modloading
         IEventBus modbus = FMLJavaModLoadingContext.get().getModEventBus();

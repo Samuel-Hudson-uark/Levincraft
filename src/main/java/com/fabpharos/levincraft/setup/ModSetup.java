@@ -2,6 +2,7 @@ package com.fabpharos.levincraft.setup;
 
 import com.fabpharos.levincraft.blocks.GeneratorTile;
 import com.fabpharos.levincraft.entities.GeneratorEntity;
+import com.fabpharos.levincraft.worldgen.Ores;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -10,8 +11,10 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.EntityStruckByLightningEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -29,7 +32,13 @@ public class ModSetup {
         }
     };
 
+    public static void setup() {
+        IEventBus bus = MinecraftForge.EVENT_BUS;
+        bus.addListener(Ores::onBiomeLoadEvent);
+    }
+
     public static void init(final FMLCommonSetupEvent event) {
+        event.enqueueWork(Ores::registerConfiguredFeatures);
     }
 
     @SubscribeEvent(priority = EventPriority.HIGH)
