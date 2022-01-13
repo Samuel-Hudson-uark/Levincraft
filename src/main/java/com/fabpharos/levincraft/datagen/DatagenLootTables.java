@@ -1,7 +1,7 @@
 package com.fabpharos.levincraft.datagen;
 
+import com.fabpharos.levincraft.setup.Registration;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.DataProvider;
 
 public class DatagenLootTables extends BaseLootTableProvider {
     public DatagenLootTables(DataGenerator generator) {
@@ -11,5 +11,12 @@ public class DatagenLootTables extends BaseLootTableProvider {
     @Override
     protected void addTables() {
 
+        lootTables.put(Registration.PYLONBLOCK.get(), createStandardTable("pylon", Registration.PYLONBLOCK.get(), Registration.PYLONBLOCK_TILE.get()));
+        lootTables.put(Registration.GENERATORBLOCK.get(), createStandardTable("generator", Registration.GENERATORBLOCK.get(), Registration.GENERATORBLOCK_TILE.get()));
+        lootTables.put(Registration.GLASSMATRIXBLOCK.get(), createStandardTable("glass_matrix", Registration.GLASSMATRIXBLOCK.get(), Registration.GLASSMATRIXBLOCK_TILE.get()));
+        lootTables.put(Registration.BEAMBLOCK.get(), createSimpleTable("beamblock", Registration.BEAMBLOCK.get()));
+        lootTables.put(Registration.RUNEBLOCK.get(), createSimpleTable("runeblock", Registration.RUNEBLOCK.get()));
+
+        lootTables.put(Registration.BAUXITE_ORE.get(), createSilkTouchTable("bauxite_ore", Registration.BAUXITE_ORE.get(), Registration.RAW_BAUXITE.get(), 1, 3));
     }
 }

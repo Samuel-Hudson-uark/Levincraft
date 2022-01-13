@@ -1,0 +1,20 @@
+{
+  "block.levincraft.aluminum_block": "Block of Aluminum",
+  "block.levincraft.bauxite_ore": "Bauxite Ore",
+  "block.levincraft.beamblock": "Basalt Beam",
+  "block.levincraft.generatorblock": "Lightning Generator",
+  "block.levincraft.glassmatrixblock": "Glass Matrix",
+  "block.levincraft.pylonblock": "Pylon",
+  "block.levincraft.raw_bauxite_block": "Block of Raw Bauxite",
+  "block.levincraft.runeblock": "Amethyst Rune",
+  "item.levincraft.aluminum_ingot": "Aluminum Ingot",
+  "item.levincraft.aluminum_nugget": "Aluminum Nugget",
+  "item.levincraft.crystalbattery": "Crystal Battery",
+  "item.levincraft.crystaltuner": "Crystal Tuner",
+  "item.levincraft.explosiverailgunammo": "Explosive Railgun Ammo",
+  "item.levincraft.railgun": "Railgun",
+  "item.levincraft.railgunammo": "Railgun Ammo",
+  "item.levincraft.raw_bauxite": "Raw Bauxite",
+  "itemGroup.levincraft": "Levincraft",
+  "message.chargableitem": "Charge: %s/%s"
+}

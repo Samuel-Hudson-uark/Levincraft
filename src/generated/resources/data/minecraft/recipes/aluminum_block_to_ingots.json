@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "levincraft",
+  "ingredients": [
+    {
+      "item": "levincraft:aluminum_block"
+    }
+  ],
+  "result": {
+    "item": "levincraft:aluminum_ingot",
+    "count": 9
+  }
+}

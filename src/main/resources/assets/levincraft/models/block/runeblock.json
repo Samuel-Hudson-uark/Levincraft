@@ -19,6 +19,12 @@
 			}
 		}
 	],
+	"display": {
+		"gui": {
+			"rotation": [30, 45, 0],
+			"translation": [0, 4, 0]
+		}
+	},
 	"groups": [
 		{
 			"name": "VoxelShapes",

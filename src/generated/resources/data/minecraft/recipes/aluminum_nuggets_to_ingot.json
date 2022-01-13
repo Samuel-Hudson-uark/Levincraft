@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "levincraft",
+  "ingredients": [
+    {
+      "item": "levincraft:aluminum_nugget"
+    },
+    {
+      "item": "levincraft:aluminum_nugget"
+    },
+    {
+      "item": "levincraft:aluminum_nugget"
+    },
+    {
+      "item": "levincraft:aluminum_nugget"
+    },
+    {
+      "item": "levincraft:aluminum_nugget"
+    },
+    {
+      "item": "levincraft:aluminum_nugget"
+    },
+    {
+      "item": "levincraft:aluminum_nugget"
+    },
+    {
+      "item": "levincraft:aluminum_nugget"
+    },
+    {
+      "item": "levincraft:aluminum_nugget"
+    }
+  ],
+  "result": {
+    "item": "levincraft:aluminum_ingot"
+  }
+}

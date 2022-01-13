@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "levincraft:raw_bauxite"
+  },
+  "result": "levincraft:aluminum_ingot",
+  "experience": 0.0,
+  "cookingtime": 100
+}

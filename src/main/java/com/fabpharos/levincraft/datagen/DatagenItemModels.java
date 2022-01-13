@@ -20,6 +20,10 @@ public class DatagenItemModels extends ItemModelProvider {
         //withExistingParent(Registration.GENERATORBLOCK.get().getRegistryName().getPath(), modLoc("block/generator"));
         //withExistingParent(Registration.GLASSMATRIXBLOCK.get().getRegistryName().getPath(), modLoc("block/glass_matrix"));
 
+        withExistingParent(Registration.ALUMINUM_BLOCK.get().getRegistryName().getPath(), modLoc("block/aluminum_block"));
+        withExistingParent(Registration.BAUXITE_ORE.get().getRegistryName().getPath(), modLoc("block/bauxite_ore"));
+        withExistingParent(Registration.RAW_BAUXITE_BLOCK.get().getRegistryName().getPath(), modLoc("block/raw_bauxite_block"));
+
         singleTexture(Registration.RAILGUNAMMO_ITEM.get().getRegistryName().getPath(),
                 mcLoc("item/generated"),
                 "layer0", modLoc("item/railgun_ammo"));
@@ -32,5 +36,15 @@ public class DatagenItemModels extends ItemModelProvider {
         /*singleTexture(Registration.CRYSTALTUNER_ITEM.get().getRegistryName().getPath(),
                 mcLoc("item/generated"),
                 "layer0", modLoc("item/crystal_tuner"));*/
+
+        singleTexture(Registration.RAW_BAUXITE.get().getRegistryName().getPath(),
+                mcLoc("item/generated"),
+                "layer0", modLoc("item/raw_bauxite"));
+        singleTexture(Registration.ALUMINUM_INGOT.get().getRegistryName().getPath(),
+                mcLoc("item/generated"),
+                "layer0", modLoc("item/aluminum_ingot"));
+        singleTexture(Registration.ALUMINUM_NUGGET.get().getRegistryName().getPath(),
+                mcLoc("item/generated"),
+                "layer0", modLoc("item/aluminum_nugget"));
     }
 }
