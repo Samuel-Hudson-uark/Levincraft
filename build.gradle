@@ -63,6 +63,8 @@ minecraft {
                     source sourceSets.main
                 }
             }
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
         }
 
         server {
@@ -126,6 +128,8 @@ repositories {
     maven { // TOP
         url "https://cursemaven.com"
     }
+
+    maven { url 'https://maven.blamejared.com' } //Patchouli
     // If you have mod jar dependencies in ./libs, you can declare them as a repository like so:
     // flatDir {
     //     dir 'libs'
@@ -142,6 +146,9 @@ dependencies {
     implementation fg.deobf("mezz.jei:jei-${jei_version}")
 
     implementation fg.deobf("curse.maven:the-one-probe-245211:3550084")
+
+    compileOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}:api")
+    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
 
     // Real mod deobf dependency examples - these get remapped to your current mappings
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api") // Adds JEI API as a compile dependency

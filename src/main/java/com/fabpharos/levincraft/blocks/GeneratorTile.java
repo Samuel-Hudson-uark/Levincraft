@@ -52,7 +52,6 @@ public class GeneratorTile extends EnergyStoringTile{
 
     public void fillCounter() {
         counter = 2500;
-        System.out.println("yes");
         setChanged();
     }
 

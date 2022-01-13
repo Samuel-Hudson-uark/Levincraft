@@ -113,6 +113,7 @@ public class Registration {
     public static final RegistryObject<Item> CRYSTALBATTERY_ITEM = ITEMS.register("crystalbattery", () ->
             new ChargableItem(() -> 60000, () -> 200, ITEM_PROPERTIES));
 
+
     //ENTITIES
     public static final RegistryObject<EntityType<GeneratorEntity>> GENERATOR_ENTITY = ENTITIES.register("generator", () -> EntityType.Builder.of(GeneratorEntity::new, MobCategory.MISC)
             .setShouldReceiveVelocityUpdates(false)

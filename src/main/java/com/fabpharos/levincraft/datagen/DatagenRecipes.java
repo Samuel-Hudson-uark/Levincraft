@@ -36,9 +36,25 @@ public class DatagenRecipes extends RecipeProvider {
                 .requires(Items.RAW_COPPER, 1)
                 .requires(Registration.RAW_BAUXITE.get(), 8)
                 .unlockedBy("has_chunk", has(Registration.RAW_BAUXITE.get()))
-                .save(consumer, "duralumin_blend");;
+                .save(consumer, "duralumin_blend");
         makeMetalConversionRecipies(Registration.ALUMINUM_NUGGET.get(), Registration.ALUMINUM_INGOT.get(), Registration.ALUMINUM_BLOCK_ITEM.get(), consumer);
         makeMetalConversionRecipies(Registration.DURALUMIN_NUGGET.get(), Registration.DURALUMIN_INGOT.get(), Registration.DURALUMIN_BLOCK_ITEM.get(), consumer);
+        makeRawOreConversionRecipes(Registration.RAW_BAUXITE.get(), Registration.RAW_BAUXITE_BLOCK_ITEM.get(), consumer);
+    }
+
+    private <I extends Item> void makeRawOreConversionRecipes(I rawOre, I block, Consumer<FinishedRecipe> consumer) {
+        //Ore to Block
+        ShapelessRecipeBuilder.shapeless(block)
+                .requires(rawOre, 9)
+                .group("levincraft")
+                .unlockedBy(rawOre.getRegistryName().getPath(), InventoryChangeTrigger.TriggerInstance.hasItems(rawOre))
+                .save(consumer, rawOre.getRegistryName().getPath() + "s_to_block");
+        //Block to Ores
+        ShapelessRecipeBuilder.shapeless(rawOre, 9)
+                .requires(block)
+                .group("levincraft")
+                .unlockedBy(block.getRegistryName().getPath(), InventoryChangeTrigger.TriggerInstance.hasItems(block))
+                .save(consumer, block.getRegistryName().getPath() + "_to_raw_ores");
     }
 
     private <I extends Item> void makeMetalConversionRecipies(I nugget, I ingot, I block, Consumer<FinishedRecipe> consumer) {
