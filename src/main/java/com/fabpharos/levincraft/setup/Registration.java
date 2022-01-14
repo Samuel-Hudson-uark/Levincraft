@@ -4,6 +4,7 @@ import com.fabpharos.levincraft.blocks.*;
 import com.fabpharos.levincraft.entities.ExplosiveRailgunArrow;
 import com.fabpharos.levincraft.entities.GeneratorEntity;
 import com.fabpharos.levincraft.entities.RailgunArrow;
+import com.fabpharos.levincraft.entities.ThunderheadEntity;
 import com.fabpharos.levincraft.items.ChargableItem;
 import com.fabpharos.levincraft.items.CrystalTuner;
 import com.fabpharos.levincraft.items.RailgunItem;
@@ -20,6 +21,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
@@ -119,6 +121,16 @@ public class Registration {
             .setShouldReceiveVelocityUpdates(false)
             .fireImmune()
             .build("generator"));
+
+    public static final RegistryObject<EntityType<ThunderheadEntity>> THUNDERHEAD = ENTITIES.register("thunderhead", () ->
+            EntityType.Builder.of(ThunderheadEntity::new, MobCategory.MONSTER)
+                    .sized(1f, 1f)
+                    .clientTrackingRange(70)
+                    .setShouldReceiveVelocityUpdates(false)
+                    .build("thunderhead"));
+
+    public static final RegistryObject<Item> THUNDERHEAD_EGG = ITEMS.register("thunderhead", () ->
+            new ForgeSpawnEggItem(THUNDERHEAD, 0x7a7a7a, 0x731568, ITEM_PROPERTIES));
 
     // Conveniance function: Take a RegistryObject<Block> and make a corresponding RegistryObject<Item> from it
     public static <B extends Block> RegistryObject<Item> fromBlock(RegistryObject<B> block) {

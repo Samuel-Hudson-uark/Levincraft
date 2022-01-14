@@ -58,5 +58,7 @@ public class DatagenItemModels extends ItemModelProvider {
         singleTexture(Registration.DURALUMIN_NUGGET.get().getRegistryName().getPath(),
                 mcLoc("item/generated"),
                 "layer0", modLoc("item/duralumin_nugget"));
+
+        withExistingParent(Registration.THUNDERHEAD_EGG.get().getRegistryName().getPath(), mcLoc("item/template_spawn_egg"));
     }
 }

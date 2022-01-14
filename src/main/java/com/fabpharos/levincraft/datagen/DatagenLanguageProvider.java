@@ -40,6 +40,11 @@ public class DatagenLanguageProvider extends LanguageProvider {
         add(Registration.DURALUMIN_INGOT.get(), "Duralumin Ingot");
         add(Registration.DURALUMIN_NUGGET.get(), "Duralumin Nugget");
         add(Registration.DURALUMIN_BLEND.get(), "Duralumin Blend");
+
+        //Entities
+        add(Registration.THUNDERHEAD.get(), "Thunderhead");
+        add(Registration.THUNDERHEAD_EGG.get(), "Thunderhead Spawn Egg");
+
         //Messages
         add("message.chargableitem", "Charge: %s/%s");
     }
