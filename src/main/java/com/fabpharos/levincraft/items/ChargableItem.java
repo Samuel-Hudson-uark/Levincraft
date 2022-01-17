@@ -23,7 +23,7 @@ public class ChargableItem extends Item {
 
     @Override
     public boolean isBarVisible(ItemStack pStack) {
-        return true;
+        return pStack.getOrCreateTag().getInt("charge") != 0;
     }
 
     @Override

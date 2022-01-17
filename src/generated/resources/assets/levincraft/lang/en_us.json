@@ -8,6 +8,7 @@
   "block.levincraft.pylonblock": "Pylon",
   "block.levincraft.raw_bauxite_block": "Block of Raw Bauxite",
   "block.levincraft.runeblock": "Amethyst Rune",
+  "entity.levincraft.thunderhead": "Thunderhead",
   "item.levincraft.aluminum_ingot": "Aluminum Ingot",
   "item.levincraft.aluminum_nugget": "Aluminum Nugget",
   "item.levincraft.crystalbattery": "Crystal Battery",
@@ -19,6 +20,7 @@
   "item.levincraft.railgun": "Railgun",
   "item.levincraft.railgunammo": "Railgun Ammo",
   "item.levincraft.raw_bauxite": "Raw Bauxite",
+  "item.levincraft.thunderhead": "Thunderhead Spawn Egg",
   "itemGroup.levincraft": "Levincraft",
   "message.chargableitem": "Charge: %s/%s"
 }

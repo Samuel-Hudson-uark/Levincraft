@@ -5,7 +5,7 @@
 			"loop": "hold_on_last_frame",
 			"animation_length": 2.5,
 			"bones": {
-				"jaw": {
+				"Jaw": {
 					"rotation": {
 						"0.0": {
 							"vector": [0, 0, 0]
@@ -39,7 +39,7 @@
 			"loop": "hold_on_last_frame",
 			"animation_length": 1,
 			"bones": {
-				"jaw": {
+				"Jaw": {
 					"rotation": {
 						"0.0": {
 							"vector": [30, 0, 0]
@@ -52,6 +52,28 @@
 					}
 				}
 			}
+		},
+		"animation.thunderhead.idle": {
+			"loop": true,
+			"animation_length": 4,
+			"bones": {
+				"Jaw": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"2.0": {
+							"vector": [15, 0, 0],
+							"easing": "easeInCubic"
+						},
+						"4.0": {
+							"vector": [0, 0, 0],
+							"easing": "easeOutCubic"
+						}
+					}
+				}
+			}
 		}
-	}
+	},
+	"geckolib_format_version": 2
 }
