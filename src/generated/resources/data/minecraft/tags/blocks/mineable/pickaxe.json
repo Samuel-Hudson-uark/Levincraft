@@ -1,14 +1,8 @@
 {
-  "replace": false,
   "values": [
-    "levincraft:pylonblock",
-    "levincraft:beamblock",
-    "levincraft:generatorblock",
-    "levincraft:glassmatrixblock",
-    "levincraft:runeblock",
+    "levincraft:pylon_block",
     "levincraft:aluminum_block",
     "levincraft:bauxite_ore",
-    "levincraft:raw_bauxite_block",
-    "levincraft:duralumin_block"
+    "levincraft:raw_bauxite_block"
   ]
 }

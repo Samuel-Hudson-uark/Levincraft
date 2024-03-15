@@ -1,6 +1,7 @@
 {
-  "replace": false,
   "values": [
-    "levincraft:duralumin_block"
+    "levincraft:aluminum_block",
+    "levincraft:bauxite_ore",
+    "levincraft:raw_bauxite_block"
   ]
 }
