@@ -22,7 +22,6 @@ public class LanguageProvider extends net.minecraftforge.common.data.LanguagePro
         add(Registration.DURALUMIN_BLOCK.get(), "Block of Duralumin");
 
         //Items
-        add(Registration.ATTUNEMENT_WAND.get(), "Attunement Wand");
         add(Registration.ALUMINUM_RAW.get(), "Raw Aluminum");
         add(Registration.ALUMINUM_INGOT.get(), "Aluminum Ingot");
         add(Registration.ALUMINUM_NUGGET.get(), "Aluminum Nugget");

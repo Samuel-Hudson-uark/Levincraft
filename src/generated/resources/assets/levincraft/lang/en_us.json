@@ -19,5 +19,8 @@
   "item.levincraft.raw_bauxite": "Raw Aluminum",
   "item.levincraft.solar_ingot": "Solar Ingot",
   "item.levincraft.void_ingot": "Void Ingot",
-  "item.levincraft.void_nugget": "Void Nugget"
+  "item.levincraft.void_nugget": "Void Nugget",
+  "item.levincraft.configurator.load": "Load",
+  "item.levincraft.configurator.fail_load": "Failed to Load",
+  "item.levincraft.configurator.save": "Save"
 }

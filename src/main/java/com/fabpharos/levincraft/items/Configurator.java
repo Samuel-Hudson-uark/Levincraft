@@ -16,8 +16,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class AttunementWand extends Item {
-    public AttunementWand() {
+public class Configurator extends Item {
+    public Configurator() {
         super(new Properties().stacksTo(1));
     }
 
@@ -32,18 +32,18 @@ public class AttunementWand extends Item {
                 BlockPos target = new BlockPos(targetBlockPos[0], targetBlockPos[1], targetBlockPos[2]);
                 if(((PylonBlockEntity) be).CanAddToPylonList(target)) {
                     if(pContext.getLevel().isClientSide()) {
-                        player.displayClientMessage(Component.translatable("item.levincraft.attunement_wand.load"), true);
+                        player.displayClientMessage(Component.translatable("item.levincraft.configurator.load"), true);
                     } else {
                         ((PylonBlockEntity) be).addToPylonList(target);
                         pContext.getItemInHand().setTag(new CompoundTag());
                     }
                 } else if(pContext.getLevel().isClientSide()) {
-                    player.displayClientMessage(Component.translatable("item.levincraft.attunement_wand.fail_load"), true);
+                    player.displayClientMessage(Component.translatable("item.levincraft.configurator.fail_load"), true);
                 }
             } else {
                 int[] targetBlockPos = {blockClicked.getX(), blockClicked.getY(), blockClicked.getZ()};
                 if(pContext.getLevel().isClientSide()) {
-                    player.displayClientMessage(Component.translatable("item.levincraft.attunement_wand.save"), true);
+                    player.displayClientMessage(Component.translatable("item.levincraft.configurator.save"), true);
                 } else {
                     pContext.getItemInHand().getOrCreateTag().putIntArray("levincraft.target_block", targetBlockPos);
                 }

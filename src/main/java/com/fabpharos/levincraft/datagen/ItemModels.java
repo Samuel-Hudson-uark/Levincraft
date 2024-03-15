@@ -14,7 +14,6 @@ public class ItemModels extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        basicItem(Registration.ATTUNEMENT_WAND.get());
         basicItem(Registration.ALUMINUM_INGOT.get());
         basicItem(Registration.ALUMINUM_NUGGET.get());
         basicItem(Registration.DURALUMIN_INGOT.get());

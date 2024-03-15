@@ -2,7 +2,7 @@ package com.fabpharos.levincraft;
 
 import com.fabpharos.levincraft.blocks.PylonBlock;
 import com.fabpharos.levincraft.blocks.PylonBlockEntity;
-import com.fabpharos.levincraft.items.AttunementWand;
+import com.fabpharos.levincraft.items.Configurator;
 import com.fabpharos.levincraft.items.LightningGunItem;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -24,7 +24,6 @@ public class Registration {
     public static final Item.Properties ITEM_PROPERTIES = new Item.Properties().tab(Levincraft.ClientSetup.ITEM_GROUP);
 
     //Items
-    public static final RegistryObject<Item> ATTUNEMENT_WAND = ITEMS.register("attunement_wand", AttunementWand::new);
     public static final RegistryObject<Item> ALUMINUM_INGOT = ITEMS.register("aluminum_ingot", () -> new Item(ITEM_PROPERTIES));
     public static final RegistryObject<Item> ALUMINUM_NUGGET = ITEMS.register("aluminum_nugget", () -> new Item(ITEM_PROPERTIES));
     public static final RegistryObject<Item> DURALUMIN_INGOT = ITEMS.register("duralumin_ingot", () -> new Item(ITEM_PROPERTIES));
@@ -36,7 +35,7 @@ public class Registration {
     public static final RegistryObject<Item> VOID_NUGGET = ITEMS.register("void_nugget", () -> new Item(ITEM_PROPERTIES));
 
     //Tools
-    public static final RegistryObject<Item> CONFIGURATOR = ITEMS.register("configurator", () -> new Item(ITEM_PROPERTIES));
+    public static final RegistryObject<Item> CONFIGURATOR = ITEMS.register("configurator", Configurator::new);
     public static final RegistryObject<Item> DECONFIGURATOR = ITEMS.register("deconfigurator", () -> new Item(ITEM_PROPERTIES));
     public static final RegistryObject<Item> BOLTCASTER = ITEMS.register("boltcaster", () -> new LightningGunItem(ITEM_PROPERTIES));
     public static final RegistryObject<Item> METEOR = ITEMS.register("meteor", () -> new LightningGunItem(ITEM_PROPERTIES));
