@@ -80,16 +80,19 @@ public class PylonBlockEntity extends BlockEntity {
 
     private void clientTick() {
         //TODO: Replace all this rendering stuff with a seperate helper class
+        //Then handle the render function within the data holder object, instead of BE renderer.
+        //The beamcache becomes unnessesary by that point
         //Later replace the if statement with if power was sent between blocks this tick.
         if (!registeredPylons.isEmpty() && BeamData.isEmpty()) {
             BeamData.add(new LightningBeamDataHolder(registeredPylons.get(0)));
         }
         beamCache.clear();
+        //At this point delete holder if it is invalid.
+        //this.bullets.values().forEach(BulletTrail::tick);
+        //this.bullets.values().removeIf(BulletTrail::isDead);
         for(LightningBeamDataHolder holder : BeamData) {
             beamCache.addAll(holder.tick());
-            //At this point delete holder if it is invalid.
-            //this.bullets.values().forEach(BulletTrail::tick);
-            //this.bullets.values().removeIf(BulletTrail::isDead);
+            
         }
     }
     private void serverTick() {
