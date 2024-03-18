@@ -1,5 +1,6 @@
 package com.fabpharos.levincraft;
 
+import com.fabpharos.levincraft.blocks.PylonBlockRenderer;
 import com.fabpharos.levincraft.datagen.DataGeneration;
 import com.mojang.logging.LogUtils;
 import com.mrcrayfish.guns.client.CustomGunManager;
@@ -54,7 +55,7 @@ public class Levincraft {
 
         @SubscribeEvent
         public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
-            //event.registerBlockEntityRenderer(Registration.PYLON_BLOCK_ENTITY.get(), PylonBlockRenderer::new);
+            event.registerBlockEntityRenderer(Registration.PYLON_BLOCK_ENTITY.get(), PylonBlockRenderer::new);
         }
         public static final String TAB_NAME = "levincraft";
 

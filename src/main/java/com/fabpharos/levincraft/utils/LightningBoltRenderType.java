@@ -13,7 +13,7 @@ public class LightningBoltRenderType extends RenderType {
     }
 
     public static final RenderType LIGHTNING_LINES = RenderType.create("levincraft:lightning_lines",
-            DefaultVertexFormat.POSITION_COLOR_NORMAL, VertexFormat.Mode.LINE_STRIP, 256, false, true,
+            DefaultVertexFormat.POSITION_COLOR_NORMAL, VertexFormat.Mode.QUADS, 256, false, true,
             RenderType.CompositeState.builder()
                     .setShaderState(RENDERTYPE_LINES_SHADER)
                     .setTransparencyState(TRANSLUCENT_TRANSPARENCY)

@@ -5,12 +5,12 @@ import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.NbtUtils;
-import net.minecraft.nbt.Tag;
 import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
@@ -23,6 +23,7 @@ import javax.annotation.Nonnull;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import static com.fabpharos.levincraft.Registration.PYLON_BLOCK_ENTITY;
 
@@ -40,9 +41,12 @@ public class PylonBlockEntity extends BlockEntity {
 
     //TODO: Do not allow an already existing position to enter list.
     public final ArrayList<BlockPos> registeredPylons = new ArrayList<>();
+    private final ArrayList<LightningBeamDataHolder> BeamData = new ArrayList<>();
+    private final ArrayList<Vec3> beamCache = new ArrayList<>();
 
     public boolean addToPylonList(BlockPos pos) {
         boolean result = registeredPylons.add(pos);
+        //This data is only saved on the server and needs to be sent to the client.
         setChanged();
         level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_ALL);
         return result;
@@ -59,6 +63,32 @@ public class PylonBlockEntity extends BlockEntity {
 
     public PylonBlockEntity(BlockPos pos, BlockState state) {
         super(PYLON_BLOCK_ENTITY.get(), pos, state);
+    }
+
+    public ArrayList<Vec3> getBeamCache() {
+        return beamCache;
+    }
+
+    public void tick() {
+        assert level != null;
+        if(level.isClientSide) {
+            clientTick();
+        } else {
+            serverTick();
+        }
+    }
+
+    private void clientTick() {
+        if (!registeredPylons.isEmpty() && BeamData.isEmpty()) {
+            BeamData.add(new LightningBeamDataHolder(registeredPylons.get(0)));
+        }
+        beamCache.clear();
+        for(LightningBeamDataHolder holder : BeamData) {
+            beamCache.addAll(holder.tick());
+        }
+    }
+    private void serverTick() {
+
     }
 
     @Override
@@ -99,9 +129,9 @@ public class PylonBlockEntity extends BlockEntity {
         ListTag tags = new ListTag();
         for(BlockPos blockPos : registeredPylons) {
             tags.add(NbtUtils.writeBlockPos(blockPos));
-            System.out.println(blockPos);
+            //System.out.println(blockPos);
         }
-        System.out.println("Saving data tag!");
+        //System.out.println("Saving data tag!");
         tag.put(ATTUNEMENT_SLOTS_TAG, tags);
     }
 
@@ -116,11 +146,11 @@ public class PylonBlockEntity extends BlockEntity {
             items.deserializeNBT(tag.getCompound(ITEMS_TAG));
         }
         if(tag.contains(ATTUNEMENT_SLOTS_TAG)) {
-            System.out.println("Handling data tag!");
+            //System.out.println("Handling data tag!");
             ListTag slots = (ListTag) tag.get(ATTUNEMENT_SLOTS_TAG);
             for(int i = 0; i < slots.size(); i++) {
                 registeredPylons.add(NbtUtils.readBlockPos(slots.getCompound(i)));
-                System.out.println(NbtUtils.readBlockPos(slots.getCompound(i)));
+                //System.out.println(NbtUtils.readBlockPos(slots.getCompound(i)));
             }
         }
     }
@@ -160,6 +190,83 @@ public class PylonBlockEntity extends BlockEntity {
         }
     }
 
-    public void tickServer() {
+    public class LightningBeamDataHolder {
+        private static final int LIGHTNING_BOLT_ANIMATION_DELAY = 4;
+        private int lightningBoltAnimationTimer = 0;
+        private static final int LIGHTNING_BOLT_ANIMATION_REPEATS = 4;
+        private int lightningBoltAnimationCount = 0;
+        private final BlockPos destination;
+        private final Vec3 direction;
+        private final ArrayList<Vec3> beamCache;
+
+        private boolean valid = true;
+        public LightningBeamDataHolder(BlockPos destination) {
+            this.destination = destination;
+            this.beamCache = new ArrayList<>();
+            BlockPos diff = destination.subtract(getBlockPos());
+            this.direction = new Vec3(diff.getX(), diff.getY(), diff.getZ()).normalize();
+            generateLightningBeams();
+        }
+
+        public ArrayList<Vec3> tick() {
+            lightningBoltAnimationTimer++;
+            if(lightningBoltAnimationTimer >= LIGHTNING_BOLT_ANIMATION_DELAY) {
+                lightningBoltAnimationTimer = 0;
+                lightningBoltAnimationCount++;
+                if(lightningBoltAnimationCount >= LIGHTNING_BOLT_ANIMATION_REPEATS) {
+                    valid = false;
+                    //Have the animation repeat only this many times, clear the beam cache after
+                }
+                generateLightningBeams();
+            }
+            return beamCache;
+        }
+
+        public void generateLightningBeams() {
+            //Generate lightning beams
+            Random random = new Random();
+            beamCache.clear();
+            Vec3 coreStart = new Vec3(0, 0, 0);
+            int coreLength = random.nextInt(3) + 7;
+            for (int core = 0; core < coreLength; core++) {
+                //Figure out how to face the beams the right way
+                Vec3 coreEnd = coreStart.add(0, 0, 1).add(randomVector(.3f).multiply(2.5, 1, 2.5));
+                beamCache.add(coreStart);
+                beamCache.add(coreEnd);
+                coreStart = coreEnd;
+
+                int branchSegments = random.nextInt(3) + 1;
+                beamCache.addAll(generateBranch(coreEnd, branchSegments, 0.5f, 1));
+            }
+        }
+
+        public static List<Vec3> generateBranch(Vec3 origin, int maxLength, float splitChance, int recursionCount) {
+            List<Vec3> branchSegements = new ArrayList<>();
+            Random random = new Random();
+            int branches = random.nextInt(maxLength + 1);
+            Vec3 branchStart = origin;
+            int dir = random.nextBoolean() ? 1 : -1;
+            float branchLength = .75f / (recursionCount + 1);
+            for (int i = 0; i < branches; i++) {
+                Vec3 branchEnd = branchStart.add(dir * branchLength, 0, branchLength).add(randomVector(.3f));
+                branchSegements.add(branchStart);
+                branchSegements.add(branchEnd);
+                if (random.nextFloat() <= splitChance)
+                    branchSegements.addAll(generateBranch(branchEnd, maxLength - 1, splitChance * 1.2f, recursionCount + 1));
+                branchStart = branchEnd;
+            }
+            return branchSegements;
+        }
+
+        public static Vec3 randomVector(float radius) {
+            double x = Math.random() * 2 * radius - radius;
+            double y = Math.random() * 2 * radius - radius;
+            double z = Math.random() * 2 * radius - radius;
+            return new Vec3(x, y, z);
+        }
+
+        public boolean isValid() {
+            return valid;
+        }
     }
 }
