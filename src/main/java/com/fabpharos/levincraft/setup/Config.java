@@ -20,8 +20,8 @@ public class Config {
             builder.push("client");
             {
                 enableGunEnchantmentGlint = builder
-                        .comment("If true, renders enchanted guns from Scorched Guns with the enchantment glint. True by default.")
-                        .translation("config.scguns.client.enable_gun_enchantment_glint")
+                        .comment("If true, renders enchanted guns with the enchantment glint. True by default.")
+                        .translation("config.levincraft.client.enable_gun_enchantment_glint")
                         .define("enableGunEnchantmentGlint", true);
             }
             builder.pop();
