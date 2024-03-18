@@ -79,6 +79,7 @@ public class PylonBlockEntity extends BlockEntity {
     }
 
     private void clientTick() {
+        //TODO: Replace all this rendering stuff with a seperate helper class
         //Later replace the if statement with if power was sent between blocks this tick.
         if (!registeredPylons.isEmpty() && BeamData.isEmpty()) {
             BeamData.add(new LightningBeamDataHolder(registeredPylons.get(0)));
