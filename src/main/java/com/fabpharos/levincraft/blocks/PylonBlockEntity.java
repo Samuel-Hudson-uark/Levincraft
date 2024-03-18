@@ -79,16 +79,18 @@ public class PylonBlockEntity extends BlockEntity {
     }
 
     private void clientTick() {
+        //Later replace the if statement with if power was sent between blocks this tick.
         if (!registeredPylons.isEmpty() && BeamData.isEmpty()) {
             BeamData.add(new LightningBeamDataHolder(registeredPylons.get(0)));
         }
         beamCache.clear();
         for(LightningBeamDataHolder holder : BeamData) {
             beamCache.addAll(holder.tick());
+            //At this point delete holder if it is invalid.
         }
     }
     private void serverTick() {
-
+        //Handle power transfer
     }
 
     @Override
@@ -199,11 +201,15 @@ public class PylonBlockEntity extends BlockEntity {
         private final Vec3 direction;
         private final ArrayList<Vec3> beamCache;
 
+        //TODO: Will this block also transport items? If so, create function for % complete of animation to render an item in the midway point.
+        //Animation takes LIGHTNING_BOLT_ANIMATION_DELAY*LIGHTNING_BOLT_ANIMATION_REPEATS ticks to complete
+        
         private boolean valid = true;
         public LightningBeamDataHolder(BlockPos destination) {
             this.destination = destination;
             this.beamCache = new ArrayList<>();
             BlockPos diff = destination.subtract(getBlockPos());
+            //don't normalize
             this.direction = new Vec3(diff.getX(), diff.getY(), diff.getZ()).normalize();
             generateLightningBeams();
         }
@@ -227,9 +233,14 @@ public class PylonBlockEntity extends BlockEntity {
             Random random = new Random();
             beamCache.clear();
             Vec3 coreStart = new Vec3(0, 0, 0);
+            //Keep the length the same
+            //Vec3 distance = Vec3(destination.subtract(getBlockPos()));
             int coreLength = random.nextInt(3) + 7;
             for (int core = 0; core < coreLength; core++) {
                 //Figure out how to face the beams the right way
+                //Replace the first added vector with distance * float(core / core length)
+                //Keep the second random vector
+                //Multiply the third multiplying vector by distance.normalize?
                 Vec3 coreEnd = coreStart.add(0, 0, 1).add(randomVector(.3f).multiply(2.5, 1, 2.5));
                 beamCache.add(coreStart);
                 beamCache.add(coreEnd);
@@ -238,6 +249,8 @@ public class PylonBlockEntity extends BlockEntity {
                 int branchSegments = random.nextInt(3) + 1;
                 beamCache.addAll(generateBranch(coreEnd, branchSegments, 0.5f, 1));
             }
+            //beamCache.add(coreStart);
+            //beamCache.add(distance);
         }
 
         public static List<Vec3> generateBranch(Vec3 origin, int maxLength, float splitChance, int recursionCount) {
