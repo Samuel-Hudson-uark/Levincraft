@@ -87,6 +87,8 @@ public class PylonBlockEntity extends BlockEntity {
         for(LightningBeamDataHolder holder : BeamData) {
             beamCache.addAll(holder.tick());
             //At this point delete holder if it is invalid.
+            //this.bullets.values().forEach(BulletTrail::tick);
+            //this.bullets.values().removeIf(BulletTrail::isDead);
         }
     }
     private void serverTick() {
