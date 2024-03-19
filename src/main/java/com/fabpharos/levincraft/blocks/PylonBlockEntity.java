@@ -199,7 +199,7 @@ public class PylonBlockEntity extends BlockEntity {
     }
 
     public class LightningBeamDataHolder {
-        private static final int LIGHTNING_BOLT_ANIMATION_DELAY = 4;
+        private static final int LIGHTNING_BOLT_ANIMATION_DELAY = 40;
         private int lightningBoltAnimationTimer = 0;
         private static final int LIGHTNING_BOLT_ANIMATION_REPEATS = 4;
         private int lightningBoltAnimationCount = 0;
@@ -215,8 +215,7 @@ public class PylonBlockEntity extends BlockEntity {
             this.destination = destination;
             this.beamCache = new ArrayList<>();
             BlockPos diff = destination.subtract(getBlockPos());
-            //don't normalize
-            this.direction = new Vec3(diff.getX(), diff.getY(), diff.getZ()).normalize();
+            this.direction = new Vec3(diff.getX(), diff.getY(), diff.getZ());
             generateLightningBeams();
         }
 
@@ -239,15 +238,10 @@ public class PylonBlockEntity extends BlockEntity {
             Random random = new Random();
             beamCache.clear();
             Vec3 coreStart = new Vec3(0, 0, 0);
-            //Keep the length the same
-            //Vec3 distance = Vec3(destination.subtract(getBlockPos()));
             int coreLength = random.nextInt(3) + 7;
-            for (int core = 0; core < coreLength; core++) {
-                //Figure out how to face the beams the right way
-                //Replace the first added vector with distance * float(core / core length)
-                //Keep the second random vector
-                //Multiply the third multiplying vector by distance.normalize?
-                Vec3 coreEnd = coreStart.add(0, 0, 1).add(randomVector(.3f).multiply(2.5, 1, 2.5));
+            Vec3 segmentLength = direction.scale((double) 1 /coreLength);
+            for (int core = 0; core < coreLength-1; core++) {
+                Vec3 coreEnd = coreStart.add(segmentLength).add(randomVector(.3f).multiply(1, 1, 1));
                 beamCache.add(coreStart);
                 beamCache.add(coreEnd);
                 coreStart = coreEnd;
@@ -255,8 +249,9 @@ public class PylonBlockEntity extends BlockEntity {
                 int branchSegments = random.nextInt(3) + 1;
                 beamCache.addAll(generateBranch(coreEnd, branchSegments, 0.5f, 1));
             }
-            //beamCache.add(coreStart);
-            //beamCache.add(distance);
+            beamCache.add(coreStart);
+            //Rotate all the vectors, so they face in the direction of target block.
+            beamCache.add(direction);
         }
 
         public static List<Vec3> generateBranch(Vec3 origin, int maxLength, float splitChance, int recursionCount) {

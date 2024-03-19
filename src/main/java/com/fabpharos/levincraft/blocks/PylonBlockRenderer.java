@@ -18,6 +18,7 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.Vec3i;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
@@ -60,13 +61,14 @@ public class PylonBlockRenderer implements BlockEntityRenderer<PylonBlockEntity>
                 List<Vec3> segments = pylonBlockEntity.getBeamCache();
                 //Quaternion direction = Quaternion.fromXYZ(distance.getX(), distance.getY(), distance.getZ());
                 //direction.normalize();
-                //poseStack.mulPose(direction);
+                //poseStack.pushPose();
                 for (int i = 0; i < segments.size() - 1; i += 2) {
                     var from = segments.get(i);
                     var to = segments.get(i + 1);
                     drawHull(from, to, width, height, pose, buffer, 0, 156, 255, 30);
                     drawHull(from, to, width * .55f, height * .55f, pose, buffer, 0, 226, 255, 30);
                 }
+                //poseStack.popPose();
                 //direction.mul(-1);
                 //poseStack.mulPose(direction);
             }
